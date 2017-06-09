@@ -17,6 +17,17 @@ class StartLaunchActivityTask extends DefaultTask {
     def launch() {
         def pkgName = GroovyUtils.getPkgName(project)
         def actName = GroovyUtils.getLaunchActivity(project)
+        println "jump $pkgName/$actName"
+        println "jump $pkgName/$actName"
+        println "jump $pkgName/$actName"
+        println "jump $pkgName/$actName"
+        println "jump $pkgName/$actName"
+        println "jump $pkgName/$actName"
+        println "jump $pkgName/$actName"
+        println "jump $pkgName/$actName"
+        println "jump $pkgName/$actName"
+        println "jump $pkgName/$actName"
+        println "jump $pkgName/$actName"
         project.exec{
             commandLine 'adb', 'shell', 'am', 'start', '-n', "$pkgName/$actName"
         }
