@@ -19,7 +19,7 @@ dependencies {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: uri('../gradle-plugins'))
+            repository(url: uri('./gradle-plugins'))
         }
     }
 }

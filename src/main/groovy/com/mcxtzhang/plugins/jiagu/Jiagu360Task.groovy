@@ -43,7 +43,12 @@ class Jiagu360Task extends DefaultTask {
             commandLine java, "-jar", jiaguJar, "-config", "-"
         }
         project.exec {
-            commandLine java, "-jar", jiaguJar, "-jiagu", srcApkPath, outApkPath
+            commandLine java, "-jar", jiaguJar, "-jiagu", srcApkPath, outApkPath, "-autosign"
         }
+
+/*        String oldFilename = "test.groovy"
+        String newFilename = "new.groovy"
+
+        new File(newFilename).renameTo(oldFilename)*/
     }
 }
