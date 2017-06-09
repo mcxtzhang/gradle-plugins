@@ -1,4 +1,4 @@
-package com.mcxtzhang.plugins
+package com.mcxtzhang.plugins.debughelper
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

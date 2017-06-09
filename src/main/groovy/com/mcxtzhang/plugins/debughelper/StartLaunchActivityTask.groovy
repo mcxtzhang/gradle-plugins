@@ -1,5 +1,6 @@
-package com.mcxtzhang.plugins
+package com.mcxtzhang.plugins.debughelper
 
+import com.mcxtzhang.plugins.GroovyUtils
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 /**
