@@ -14,19 +14,24 @@ import org.gradle.api.tasks.TaskAction
 class Jiagu360Task extends DefaultTask {
     @TaskAction
     def jiagu() {
-        String java = "C:\\Users\\admin\\Desktop\\360jiagubao_windows_64\\jiagu\\java\\bin\\java.exe"
-        String jiaguJar = "C:\\Users\\admin\\Desktop\\360jiagubao_windows_64\\jiagu\\jiagu.jar"
+        String java = project.Jiagu.javaPath
+        //"C:\\Users\\admin\\Desktop\\360jiagubao_windows_64\\jiagu\\java\\bin\\java.exe"
+        String jiaguJar = project.Jiagu.jiaguJarPath
+        //"C:\\Users\\admin\\Desktop\\360jiagubao_windows_64\\jiagu\\jiagu.jar"
 
-        String account = "13938422051"
-        String password = "q0q0q0"
+        String account = project.Jiagu.account//"13938422051"
+        String password = project.Jiagu.password//"q0q0q0"
 
-        String keystorePath = "E:\\ChongGou3\\anlaiye\\Android_Aly\\anlaiye.keystore"
-        String keystorePassword = "anlaiye123465"
-        String alias = "anlaiye"
-        String aliasPassword = "anlaiye123465"
+        String keystorePath = project.Jiagu.keystorePath
+        //"E:\\ChongGou3\\anlaiye\\Android_Aly\\anlaiye.keystore"
+        String keystorePassword = project.Jiagu.keystorePassword//"anlaiye123465"
+        String alias = project.Jiagu.alias//"anlaiye"
+        String aliasPassword = project.Jiagu.aliasPassword//"anlaiye123465"
 
-        String srcApkPath = "E:\\ChongGou3\\anlaiye\\Android_Aly\\app\\build\\outputs\\apk\\app-release.apk"
-        String outApkPath = "E:\\ChongGou3\\anlaiye\\Android_Aly\\app\\build\\outputs\\apk\\jiagued\\"
+        String srcApkPath = project.Jiagu.srcApkPath
+        //"E:\\ChongGou3\\anlaiye\\Android_Aly\\app\\build\\outputs\\apk\\app-release.apk"
+        String outApkPath = project.Jiagu.outApkPath
+        //"E:\\ChongGou3\\anlaiye\\Android_Aly\\app\\build\\outputs\\apk\\jiagued\\"
 
         project.exec {
             commandLine java, "-jar", jiaguJar, "-login", account, password

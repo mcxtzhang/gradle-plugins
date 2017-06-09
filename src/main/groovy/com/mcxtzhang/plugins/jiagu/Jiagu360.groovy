@@ -13,6 +13,7 @@ import org.gradle.api.Project
  */
 class Jiagu360 implements Plugin<Project> {
     void apply(Project project) {
+        project.extensions.create("Jiagu", JiaguExtension)
         project.tasks.create("jiagu",Jiagu360Task)
     }
 }
