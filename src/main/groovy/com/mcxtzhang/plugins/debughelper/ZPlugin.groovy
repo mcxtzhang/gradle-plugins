@@ -49,6 +49,25 @@ class ZPlugin implements Plugin<Project> {
                 }
             }
         }*/
+        project.tasks.create('test2'){
+            doLast{
+                project.exec{
+                    commandLine 'apksigner','sign','--ks','C:\\Users\\Administrator\\Desktop\\anlaiye.keystore','--ks-pass','pass:anlaiye123465','C:\\Users\\Administrator\\Desktop\\Anlaiye.apk'
+                }
+            }
+        }
+/*
+        project.tasks.create("cmdTest") {
+            doLast {
+                project.exec {
+*/
+/*                    workingDir "C:\\Users\\Administrator\\AppData\\Local\\Android\\sdk1\\build-tools\\25.0.2"*//*
+
+                    commandLine "apksigner", "--help"
+                }
+            }
+        }
+*/
 
         project.tasks.create("launchActivity", StartLaunchActivityTask)
         project.gradle.taskGraph.whenReady {

@@ -11,9 +11,11 @@ import org.gradle.api.Project
  * Created:   2017/6/9.
  * History:
  */
-class Jiagu360 implements Plugin<Project> {
+class Jiagu360Plugin implements Plugin<Project> {
     void apply(Project project) {
         project.extensions.create("Jiagu", JiaguExtension)
-        project.tasks.create("jiagu",Jiagu360Task)
+        Jiagu360Task jiagu360Task = project.tasks.create("jiagu", Jiagu360Task)
+        ZipAndSignTask zipAndSignTask = project.tasks.create("jiaguZipSign", ZipAndSignTask);
+        zipAndSignTask.dependsOn jiagu360Task
     }
 }
