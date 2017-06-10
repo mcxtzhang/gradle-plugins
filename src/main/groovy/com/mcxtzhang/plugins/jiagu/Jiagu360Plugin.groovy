@@ -15,7 +15,14 @@ class Jiagu360Plugin implements Plugin<Project> {
     void apply(Project project) {
         project.extensions.create("Jiagu", JiaguExtension)
         Jiagu360Task jiagu360Task = project.tasks.create("jiagu", Jiagu360Task)
-        ZipAndSignTask zipAndSignTask = project.tasks.create("jiaguZipSign", ZipAndSignTask);
-        zipAndSignTask.dependsOn jiagu360Task
+        ZipAndSignTask zipAndSignTask = project.tasks.create("zipSign", ZipAndSignTask);
+        //zipAndSignTask.dependsOn jiagu360Task
+
+        project.tasks.create("jiaguZipSign"){
+            dependsOn jiagu360Task,zipAndSignTask
+            doLast{
+                println "jiaguZipSign finished.."
+            }
+        }
     }
 }
