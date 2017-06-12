@@ -16,13 +16,27 @@ class Jiagu360Plugin implements Plugin<Project> {
         project.extensions.create("Jiagu", JiaguExtension)
         Jiagu360Task jiagu360Task = project.tasks.create("jiagu", Jiagu360Task)
         ZipAndSignTask zipAndSignTask = project.tasks.create("zipSign", ZipAndSignTask);
-        //zipAndSignTask.dependsOn jiagu360Task
+        zipAndSignTask.dependsOn jiagu360Task
 
-        project.tasks.create("jiaguZipSign"){
-            dependsOn jiagu360Task,zipAndSignTask
-            doLast{
-                println "jiaguZipSign finished.."
+        project.afterEvaluate {
+            project.tasks.getByName("assembleReleaseChannels") { task ->
+                jiagu360Task.dependsOn task
+                project.tasks.create("classOver") {
+                    dependsOn zipAndSignTask
+                    doLast {
+                        println "jiaguZipSign finished.."
+                    }
+                }
             }
         }
+        //zipSign依赖jiagu，jiagu依赖于walle。
+        //最终任务依赖ZipSign
+
+/*        project.tasks.create("jiaguZipSign") {
+            dependsOn jiagu360Task, zipAndSignTask
+            doLast {
+                println "jiaguZipSign finished.."
+            }
+        }*/
     }
 }

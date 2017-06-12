@@ -1,5 +1,6 @@
 package com.mcxtzhang.plugins.jiagu
 
+import com.mcxtzhang.plugins.GroovyUtils
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 
@@ -37,7 +38,9 @@ class ZipAndSignTask extends DefaultTask {
         println 'zxt begin signed.....................'
         //println "aaA:"+stopTomcat.output()
         String result = "$apksignerPath sign --ks $keystorePath  --ks-pass pass:$keystorePassword $outApkPath".execute(null, project.rootDir).text.trim()
+        GroovyUtils.deleteDir(project.rootDir.absolutePath + "/temp360/")
         println "result+$result"
+
 
     }
 }

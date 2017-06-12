@@ -30,4 +30,11 @@ class GroovyUtils {
         }
         return result
     }
+
+    static def deleteDir(String path) {
+        File dir = new File(path)
+        if (dir.exists()) {
+            dir.delete()
+        }
+    }
 }
