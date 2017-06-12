@@ -25,9 +25,9 @@ class Jiagu360Task extends DefaultTask {
 
 /*        String keystorePath = project.Jiagu.keystorePath
         //"E:\\ChongGou3\\anlaiye\\Android_Aly\\anlaiye.keystore"
-        String keystorePassword = project.Jiagu.keystorePassword//"anlaiye123465"
-        String alias = project.Jiagu.alias//"anlaiye"
-        String aliasPassword = project.Jiagu.aliasPassword//"anlaiye123465"*/
+        String keystorePassword = project.Jiagu.keystorePassword//
+        String alias = project.Jiagu.alias
+        String aliasPassword = project.Jiagu.aliasPassword//*/
 
         String srcApkPath = project.Jiagu.srcApkPath
         //"E:\\ChongGou3\\anlaiye\\Android_Aly\\app\\build\\outputs\\apk\\app-release.apk"
